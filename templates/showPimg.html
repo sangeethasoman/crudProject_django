@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+</head>
+<body> 
+    <!-- <table border="2px">
+        <thead>
+            <tr>
+                <th>PRODUCT ID</th>
+                <th>PRODUCT NAME</th>
+                <th>PRODUCT DESCRIPTION</th>
+                <th>PRODUCT QUANTITY</th>
+                <th>PRODUCT PRICE</th>
+                <th>ACTION..</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in product %}
+            <tr>
+                <td>{{ p.id }}</td>
+                <td>{{ p.Product_name }}</td>
+                <td>{{ p.description }}</td>
+                <td>{{ p.quantity }}</td>
+                <td>{{ p.price }}</td>
+
+                <td><a href="{% url 'editpage' p.id  %}">Edit</a>
+                    <br>
+                    <a href="{% url 'deletepage' p.id  %}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}                    
+        </tbody>
+    </table> --> 
+    
+
+    <section class="vh-100 gradient-custom">
+        <form method='post' action="{% url 'add_product_details' %}">
+            {% csrf_token %}
+        <div class="container py-5 h-100">
+          <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12">
+              <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                <div class="card-body p-4 p-md-5">
+                  <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Show Product Deatils</h3>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">PRODUCT ID</th>
+                        <th scope="col">PRODUCT NAME</th>
+                        <th scope="col">PRODUCT DESCRIPTION</th>
+                        <th scope="col">PRODUCT QUANTITY</th>
+                        <th scope="col">PRODUCT PRICE</th>
+                        <th scope="col">ACTION</th>
+                      </tr>
+                    </thead>
+                    <tbody class="table-group-divider table-divider-color">
+                    {% for p in product %}
+                        <tr>
+                            <td>{{ p.id }}</td>
+                            <td>{{ p.Product_name }}</td>
+                            <td>{{ p.description }}</td>
+                            <td>{{ p.quantity }}</td>
+                            <td>{{ p.price }}</td>
+            
+                            <td>
+                                <a href="{% url 'editpage' p.id  %}">Edit</a>
+                             
+                                <a href="{% url 'deletepage' p.id  %}">Delete</a>
+                            </td>
+                      </tr>
+                    {% endfor %}        
+                    </tbody>
+                  </table> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </form>
+      </section>
+</body>
+</html>

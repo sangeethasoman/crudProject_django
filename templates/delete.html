@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <!-- <form method="POST" action="/delete_product/{{ products.id }}">
+        {% csrf_token %}
+
+        <p>Are you sure you want to delete 
+            <strong>
+                '{{ products.Product_name }}'
+            </strong>
+        </p>
+        <a href="javascript:history.go(-1);">
+            Go Back
+        </a>
+        <input type="submit" value="Confirm"/>
+    </form> -->
+    
+
+      <section class="vh-100 gradient-custom">
+         
+        <div class="container py-5 h-100">
+          <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12">
+              <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                <div class="card-body p-4 p-md-5">
+                  <h3>Delete Product</h3>
+                  <form method="POST" action="/delete_product/{{ products.id }}">
+                    {% csrf_token %}
+                <div class="card">
+                    <div class="card-body"> 
+                      <p class="card-text">Do you want to delete the <strong>'{{ products.Product_name }}' </strong>?</p>
+                      <input class="btn btn-primary btn-ls" type="submit" value="Confirm" />
+                      <input class="btn btn-primary btn-ls" type=button value="Previous Page" onClick="javascript:history.go(-1);">
+                    </div>
+                  </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> 
+      </section>
+</body>
+</html>

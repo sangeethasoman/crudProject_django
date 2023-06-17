@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrudApp</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <!-- <form method='post' action="{% url 'add_product_details' %}">
+        {% csrf_token %}
+
+        <label>Enter Product Name:</label>
+        <input type="text" name="product_name"><br>
+        <label>Enter Product Description:</label>
+        <textarea name="description"  cols="15" rows="3"></textarea><br>
+        <label>Enter Product Quantity:</label>
+        <input type="number" name="quantity"><br>
+        <label>Enter Product Price:</label>
+        <input type="number" name="price"><br>
+
+        <button type="submit">Submit</button>
+
+    </form> -->
+    <section class="vh-100 gradient-custom">
+        <form method='post' action="{% url 'add_product_details' %}">
+            {% csrf_token %}
+        <div class="container py-5 h-100">
+          <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-7">
+              <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                <div class="card-body p-4 p-md-5">
+                  <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Add Products</h3>
+                  <form>
+      
+                    <div class="row">
+                      <div class="col-md-6 mb-4">
+      
+                        <div class="form-outline">
+                          <input type="text" name="product_name" autocomplete="off" class="form-control form-control-lg" />
+                          <label class="form-label" for="product_name">Enter Product Name</label>
+                        </div>
+      
+                      </div>
+                      <div class="col-md-6 mb-4">
+      
+                        <div class="form-outline">
+                            <input type="text" name="quantity" autocomplete="off"  class="form-control form-control-lg" />
+                            <label class="form-label" for="quantity">Enter Product Quantity</label>
+                          </div>
+      
+                      </div>
+                    </div>
+      
+                    <div class="row">
+                      <div class="col-md-6 mb-4 pb-2">
+      
+                        <div class="form-outline">
+                            <textarea class="form-control" autocomplete="off"  rows="3" name="description" placeholder=""></textarea>
+                            <label class="form-label" for="description">Enter Product Description</label>
+                          </div>
+                        
+      
+                      </div>
+                      <div class="col-md-6 mb-4 pb-2">
+      
+                        <div class="form-outline">
+                          <input type="tel" name="price" autocomplete="off"  class="form-control form-control-lg" />
+                          <label class="form-label" for="price">Enter Product Price</label>
+                        </div>
+      
+                      </div>
+                    </div>
+
+                    <div class="mt-4 pt-2">
+                      <input class="btn btn-primary btn-ls" type="submit" value="Submit" />
+                    </div>
+      
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </form>
+      </section>
+</body>
+</html>
